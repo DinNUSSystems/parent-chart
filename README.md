@@ -22,7 +22,7 @@ Ensure you have the following installed before proceeding:
   ```bash
   helm create parent-chart
 
-**Modify the chart as necessaryto fit your needs. for example changing the version in Chart.yaml
+Modify the chart as necessaryto fit your needs. for example changing the version in Chart.yaml
 
 ## Step 3: Package the Helm Chart
 Package the Helm chart and store it in the docs directory:
@@ -43,31 +43,30 @@ Click "Create a new release".
 Use the tag version, e.g., v1.0.0, and attach the .tgz file from the docs directory.
 ## Step 5: Update Index File
 Generate and commit the index.yaml:
-bash
-Copy code
+
+```bash
 helm repo index docs --url https://yourusername.github.io/parent-chart/
 git add docs/index.yaml
 git commit -m "Update Helm repository index"
 git push origin main
+
 ## Step 6: Set Up GitHub Pages
 Activate GitHub Pages:
 Navigate to your repository settings.
 Go to the "Pages" section.
 Configure it to publish from the main branch and the /docs folder.
+
 ## Step 7: Add Repository to Helm
 Add your Helm repository:
-bash
-Copy code
+```bash
 helm repo add your-charts https://yourusername.github.io/parent-chart/
 helm repo update
 ## Step 8: Install or Pull the Helm Chart
 Install your Helm chart:
 
-bash
-Copy code
+```bash
 helm install my-parent-chart your-charts/parent-chart --version 1.0.0
 Pull the Helm chart to inspect it:
 
-bash
-Copy code
+```bash
 helm pull your-charts/parent-chart --version 1.0.0
